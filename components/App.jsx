@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 const DB = [
   { name:"Sodium Lauryl Sulfate", aliases:["sodium lauryl sulfate","sls"], category:"Irritante confirmado", level:"alto", score:-20, description:"Tensioactivo agresivo con evidencia sólida de irritación del cuero cabelludo.", tip:"Busca alternativas como Sodium Cocoyl Glutamate o Decyl Glucoside." },
