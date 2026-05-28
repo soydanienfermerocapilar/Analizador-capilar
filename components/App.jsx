@@ -207,7 +207,7 @@ function RutinaTab(){
     try{
       const nc=nota.replace(/\\/g,"\\\\").replace(/"/g,"'").replace(/\n/g," ").replace(/\r/g,"");
       const body=`{"model":"claude-sonnet-4-20250514","max_tokens":1500,"messages":[{"role":"user","content":"Eres Daniel Hermosa Pérez, enfermero especialista en cuidados capilares. El paciente dice: ${nc}. Dame una rutina en JSON sin markdown: {\\\"tipo\\\":\\\"string\\\",\\\"aviso\\\":\\\"string\\\",\\\"champu_corriente\\\":{\\\"buscar\\\":[\\\"item\\\"],\\\"evitar\\\":[\\\"item\\\"]},\\\"champu_especifico\\\":{\\\"buscar\\\":[\\\"item\\\"],\\\"evitar\\\":[\\\"item\\\"],\\\"nota\\\":\\\"string\\\"},\\\"acondicionador\\\":{\\\"buscar\\\":[\\\"item\\\"],\\\"evitar\\\":[\\\"item\\\"]},\\\"minoxidil\\\":{\\\"incluir\\\":false,\\\"nota\\\":\\\"\\\"},\\\"suplementos\\\":[\\\"item\\\"],\\\"medicacion\\\":null,\\\"habitos\\\":[\\\"h1\\\",\\\"h2\\\",\\\"h3\\\",\\\"h4\\\",\\\"h5\\\"]}"}]}`;
-      const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body});
+      const res=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:body});
       if(!res.ok)throw new Error("api");
       const data=await res.json();
       const txt=(data.content?.[0]?.text||"").replace(/```json|```/g,"").trim();
